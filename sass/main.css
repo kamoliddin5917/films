@@ -36,6 +36,11 @@ body {
   display: flex;
   align-items: center;
 }
+@media only screen and (max-width: 600px) {
+  .search__label {
+    width: 100%;
+  }
+}
 .search__label::after {
   content: "";
   display: inline-block;
@@ -92,7 +97,7 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   list-style: none;
-  padding: 20px 20px 0 20px;
+  padding-top: 20px;
 }
 @media only screen and (max-width: 760px) {
   .cards {
@@ -101,14 +106,21 @@ body {
 }
 
 .card {
-  width: 340px;
+  width: 260px;
   margin-bottom: 20px;
-  padding: 420px 10px 100px 10px;
+  padding: 324px 10px 100px 10px;
   text-align: center;
   background-color: #f2f2f2;
   border-radius: 10px;
   box-shadow: 0 0 10px #fff;
   position: relative;
+}
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 340px;
+    margin-bottom: 20px;
+    padding: 420px 10px 100px 10px;
+  }
 }
 .card:hover {
   cursor: pointer;
@@ -119,12 +131,20 @@ body {
   transition: all 1s cubic-bezier(0, 1.2, 0.02, 1.95);
 }
 .card__img {
-  width: 100%;
-  height: 400px;
+  width: 240px;
+  height: 300px;
   border-radius: 10px;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 10px;
+  left: 10px;
+}
+@media only screen and (max-width: 600px) {
+  .card__img {
+    width: 100%;
+    height: 400px;
+    top: 0;
+    left: 0;
+  }
 }
 .card__date {
   font-weight: 700;
@@ -136,7 +156,7 @@ body {
 .card__title {
   font-weight: 700;
   font-size: 20px;
-  width: 220px;
+  width: 100%;
   margin: 10px auto;
   color: gold;
   text-shadow: -1px 1px red;

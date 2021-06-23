@@ -42,7 +42,7 @@ body {
   flex-wrap: wrap;
 
   list-style: none;
-  padding: 20px 20px 0 20px;
+  padding-top: 20px;
 
   @media only screen and(max-width:760px) {
     justify-content: center;
@@ -50,15 +50,21 @@ body {
 }
 
 .card {
-  width: 340px;
+  width: 260px;
   margin-bottom: 20px;
-  padding: 420px 10px 100px 10px;
+  padding: 324px 10px 100px 10px;
   text-align: center;
   background-color: #f2f2f2;
   border-radius: 10px;
-  box-shadow: 0 0 10px $color-white;
+  box-shadow: 0 0 10px #fff;
 
   position: relative;
+
+  @media only screen and(max-width:600px) {
+    width: 340px;
+    margin-bottom: 20px;
+    padding: 420px 10px 100px 10px;
+  }
 
   &:hover {
     cursor: pointer;
@@ -71,12 +77,19 @@ body {
   }
 
   &__img {
-    width: 100%;
-    height: 400px;
+    width: 240px;
+    height: 300px;
     border-radius: 10px;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 10px;
+    left: 10px;
+
+    @media only screen and(max-width:600px) {
+      width: 100%;
+      height: 400px;
+      top: 0;
+      left: 0;
+    }
   }
 
   &__date {
@@ -90,11 +103,14 @@ body {
   &__title {
     font-weight: 700;
     font-size: 20px;
-    width: 220px;
+    width: 100%;
     margin: 10px auto;
     color: $color-primary;
     text-shadow: -1px 1px $color-secondary;
 
+    // @media only screen and(max-width:600px) {
+    //   width: 220px;
+    // }
   }
 
   &__text {
