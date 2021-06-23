@@ -22,8 +22,69 @@ body {
   margin-right: auto;
 }
 
+.section-top {
+  margin-top: 20px;
+}
+
+.search__label {
+  display: inline-block;
+  cursor: pointer;
+  width: 600px;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.search__label::after {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(../img/search.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 376px), only screen and (min-resolution: 192dpi) and (min-width: 376px), (min-width: 2000px) {
+  .search__label::after {
+    background-image: url(../img/search@2x.png);
+  }
+}
+.search__input {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 20px;
+  color: gold;
+  outline: none;
+  background-color: transparent;
+  border: none;
+}
+.search__input::-moz-placeholder {
+  font-size: 20px;
+  color: gold;
+  opacity: 0.5;
+}
+.search__input:-ms-input-placeholder {
+  font-size: 20px;
+  color: gold;
+  opacity: 0.5;
+}
+.search__input::placeholder {
+  font-size: 20px;
+  color: gold;
+  opacity: 0.5;
+}
+.search__input::-webkit-search-cancel-button, .search__input::-webkit-search-decoration {
+  -webkit-appearance: none;
+          appearance: none;
+  display: none;
+}
+
 .films {
   background-color: black;
+  border: 1px solid transparent;
 }
 
 .cards {
@@ -86,6 +147,10 @@ body {
   font-style: italic;
   color: gold;
   text-shadow: -0.5px 0.5px black;
+  display: none;
+}
+.card__text-click {
+  display: block;
 }
 .card__box-btn {
   width: 100%;
@@ -119,6 +184,20 @@ body {
 .card__btn:active {
   background-color: #11fa09;
   border: 2px solid #11fa09;
+}
+.card__btn-text {
+  width: 0;
+  height: 0;
+  cursor: pointer;
+  border-bottom: none;
+  border-top: 10px solid gold;
+  border-left: 10px solid #f2f2f2;
+  border-right: 10px solid #f2f2f2;
+  transition: all 0.4s;
+}
+.card__btn-text-click {
+  transform: rotateX(180deg);
+  border-top: 10px solid red;
 }
 .card__likes {
   display: flex;

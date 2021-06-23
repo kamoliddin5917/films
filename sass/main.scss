@@ -29,8 +29,11 @@ body {
   margin-right: auto;
 }
 
+@import './section-top';
+
 .films {
   background-color: $bg-primary;
+  border: 1px solid transparent;
 }
 
 .cards {
@@ -74,7 +77,6 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    // transform: translateX(-50%);
   }
 
   &__date {
@@ -101,6 +103,12 @@ body {
     font-style: italic;
     color: $color-primary;
     text-shadow: -.5px .5px $bg-primary;
+
+    display: none;
+
+    &-click {
+      display: block;
+    }
   }
 
   &__box-btn {
@@ -138,6 +146,24 @@ body {
     &:active {
       background-color: $bg-secondary-like;
       border: 2px solid $bg-secondary-like;
+    }
+
+    &-text {
+      width: 0;
+      height: 0;
+
+      cursor: pointer;
+      border-bottom: none;
+      border-top: 10px solid gold;
+      border-left: 10px solid #f2f2f2;
+      border-right: 10px solid #f2f2f2;
+
+      transition: all .4s;
+
+      &-click {
+        transform: rotateX(180deg);
+        border-top: 10px solid red;
+      }
     }
   }
 

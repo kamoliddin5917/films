@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +11,17 @@
   <link rel="stylesheet" href="./sass/main.css">
   <title>FILMS</title>
 </head>
+
 <body>
   <div class="films">
+    <section class="section-top">
+      <div class="container">
+        <label class="search__label" for="search">
+          <input class="search__input" type="search" name="search" id="search" placeholder="My Favorite Movies">
+        </label>
+      </div>
+    </section>
+    
     <div class="container">
       <ul class="cards js-cards"></ul>
     </div>
@@ -19,4 +29,5 @@
   <script src="./javascript/films.js"></script>
   <script src="./javascript/script.js"></script>
 </body>
+
 </html>

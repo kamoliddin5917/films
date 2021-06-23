@@ -1,0 +1,56 @@
+.section-top {
+  margin-top: 20px;
+}
+
+.search {
+  &__label {
+    display: inline-block;
+    cursor: pointer;
+    width: 600px;
+    background-color: $color-white;
+    border-radius: 20px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-image: url(../img/search.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-right: 10px;
+
+      @media only screen and(min-resolution:192dpi)and(min-width:376px),
+      (min-width:2000px) {
+        background-image: url(../img/search@2x.png);
+      }
+    }
+  }
+
+  &__input {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: gold;
+    outline: none;
+    background-color: transparent;
+    border: none;
+
+    &::placeholder {
+      font-size: 20px;
+      color: gold;
+      opacity: .5;
+    }
+
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration {
+      appearance: none;
+      display: none;
+    }
+  }
+}
