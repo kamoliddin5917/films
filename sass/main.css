@@ -25,6 +25,11 @@ body {
 .section-top {
   margin-top: 20px;
 }
+.section-top .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .search__label {
   display: inline-block;
@@ -56,12 +61,17 @@ body {
     background-image: url(../img/search@2x.png);
   }
 }
+.search__label:hover {
+  box-shadow: 0 0 20px #fff;
+}
 .search__input {
   display: inline-block;
   width: 100%;
   padding: 10px 20px;
   font-size: 20px;
   color: gold;
+  text-shadow: -0.5px 1px red;
+  letter-spacing: 1px;
   outline: none;
   background-color: transparent;
   border: none;
@@ -69,17 +79,20 @@ body {
 .search__input::-moz-placeholder {
   font-size: 20px;
   color: gold;
-  opacity: 0.5;
+  opacity: 0.4;
+  text-shadow: -1.5px 2px red;
 }
 .search__input:-ms-input-placeholder {
   font-size: 20px;
   color: gold;
-  opacity: 0.5;
+  opacity: 0.4;
+  text-shadow: -1.5px 2px red;
 }
 .search__input::placeholder {
   font-size: 20px;
   color: gold;
-  opacity: 0.5;
+  opacity: 0.4;
+  text-shadow: -1.5px 2px red;
 }
 .search__input::-webkit-search-cancel-button, .search__input::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -87,6 +100,96 @@ body {
   display: none;
 }
 
+.form {
+  display: inline-block;
+}
+
+.select {
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  color: gold;
+  text-shadow: -1px 1px red;
+  letter-spacing: 2px;
+}
+.select:hover {
+  box-shadow: 0 0 20px #fff;
+}
+
+.option {
+  background-color: gold;
+  color: red;
+  text-shadow: -1px 1px #000;
+}
+
+.btn--form {
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-decoration: none;
+  font-style: italic;
+  font-size: 20px;
+  color: red;
+  text-shadow: -1.5px 1px #fff;
+  border: 2px solid gold;
+  border-radius: 8px;
+  background-color: gold;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 1;
+}
+.btn--form::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: gold;
+  border-radius: inherit;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.btn--form:hover {
+  background-color: transparent;
+  color: gold;
+  text-shadow: -1.5px 1px red;
+}
+.btn--form:hover::after {
+  -webkit-animation: btn 0.7s infinite;
+          animation: btn 0.7s infinite;
+}
+.btn--form:active {
+  background-color: #11fa09;
+  border: 2px solid #11fa09;
+}
+
+@-webkit-keyframes btn {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes btn {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
 .films {
   background-color: black;
   border: 1px solid transparent;
@@ -195,11 +298,29 @@ body {
   margin-bottom: 5px;
   margin-top: auto;
   transition: all 0.3s;
+  position: relative;
+  z-index: 1;
+}
+.card__btn::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: gold;
+  border-radius: inherit;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
 }
 .card__btn:hover {
   background-color: transparent;
   color: gold;
   text-shadow: -1.5px 1px red;
+}
+.card__btn:hover::after {
+  -webkit-animation: btn 0.7s infinite;
+          animation: btn 0.7s infinite;
 }
 .card__btn:active {
   background-color: #11fa09;
@@ -214,6 +335,9 @@ body {
   border-left: 10px solid #f2f2f2;
   border-right: 10px solid #f2f2f2;
   transition: all 0.4s;
+}
+.card__btn-text:hover {
+  border-top: 10px solid #11fa09;
 }
 .card__btn-text-click {
   transform: rotateX(180deg);
@@ -235,15 +359,31 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 30px 30px;
+  position: relative;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 376px), only screen and (min-resolution: 192dpi) and (min-width: 376px), (min-width: 2000px) {
   .card__likes-like {
     background-image: url(../img/like@2x.png);
   }
 }
+.card__likes-like::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: #11fa09;
+  border-radius: inherit;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
 .card__likes-like:hover {
-  background-color: gold;
   opacity: 0.7;
+}
+.card__likes-like:hover::after {
+  -webkit-animation: btn 0.7s infinite;
+          animation: btn 0.7s infinite;
 }
 .card__likes-like:active {
   background-color: #11fa09;
@@ -257,6 +397,9 @@ body {
   .card__likes-like:nth-of-type(2) {
     background-image: url(../img/not-like@2x.png);
   }
+}
+.card__likes-like:nth-of-type(2)::after {
+  background-color: red;
 }
 .card__likes-like:nth-of-type(2):active {
   background-color: red;

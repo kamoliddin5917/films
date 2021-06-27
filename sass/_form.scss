@@ -1,0 +1,91 @@
+.form {
+  display: inline-block;
+}
+
+.select {
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  color: gold;
+  text-shadow: -1px 1px red;
+  letter-spacing: 2px;
+
+  &:hover {
+    box-shadow: 0 0 20px $color-white;
+  }
+}
+
+.option {
+  background-color: gold;
+  color: red;
+  text-shadow: -1px 1px #000;
+}
+
+.btn--form {
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-decoration: none;
+  font-style: italic;
+  font-size: 20px;
+  color: $color-secondary;
+  text-shadow: -1.5px 1px $color-white;
+  border: 2px solid $color-primary;
+  border-radius: 8px;
+  background-color: $color-primary;
+  cursor: pointer;
+  transition: all .3s;
+
+  position: relative;
+
+  z-index: 1;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: gold;
+    border-radius: inherit;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    z-index: -1;
+  }
+
+  &:hover {
+    background-color: transparent;
+    color: $color-primary;
+    text-shadow: -1.5px 1px $color-secondary;
+
+
+    &::after {
+      animation: btn .7s infinite;
+    }
+  }
+
+  &:active {
+    background-color: $bg-secondary-like;
+    border: 2px solid $bg-secondary-like;
+  }
+
+
+}
+
+@keyframes btn {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

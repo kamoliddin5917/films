@@ -30,6 +30,7 @@ body {
 }
 
 @import './section-top';
+@import './form';
 
 .films {
   background-color: $bg-primary;
@@ -153,10 +154,33 @@ body {
     margin-top: auto;
     transition: all .3s;
 
+    position: relative;
+
+    z-index: 1;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background-color: gold;
+      border-radius: inherit;
+
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      z-index: -1;
+    }
+
     &:hover {
       background-color: transparent;
       color: $color-primary;
       text-shadow: -1.5px 1px $color-secondary;
+
+      &::after {
+        animation: btn .7s infinite;
+      }
     }
 
     &:active {
@@ -175,6 +199,10 @@ body {
       border-right: 10px solid #f2f2f2;
 
       transition: all .4s;
+
+      &:hover {
+        border-top: 10px solid $bg-secondary-like;
+      }
 
       &-click {
         transform: rotateX(180deg);
@@ -201,14 +229,37 @@ body {
       background-position: center;
       background-size: 30px 30px;
 
+      position: relative;
+
+      // z-index: 1;
+
       @media only screen and(min-resolution:192dpi)and(min-width:376px),
       (min-width:2000px) {
         background-image: url(../img/like@2x.png);
       }
 
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background-color: $bg-secondary-like;
+        border-radius: inherit;
+
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        z-index: -1;
+      }
+
       &:hover {
-        background-color: $color-primary;
+        // background-color: $color-primary;
         opacity: .7;
+
+        &::after {
+          animation: btn .7s infinite;
+        }
       }
 
       &:active {
@@ -223,6 +274,10 @@ body {
         @media only screen and(min-resolution:192dpi)and(min-width:376px),
         (min-width:2000px) {
           background-image: url(../img/not-like@2x.png);
+        }
+
+        &::after {
+          background-color: $bg-secondary-not;
         }
 
         &:active {

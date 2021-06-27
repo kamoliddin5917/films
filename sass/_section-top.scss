@@ -1,5 +1,11 @@
 .section-top {
   margin-top: 20px;
+
+  & .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .search {
@@ -33,6 +39,10 @@
         background-image: url(../img/search@2x.png);
       }
     }
+
+    &:hover {
+      box-shadow: 0 0 20px $color-white;
+    }
   }
 
   &__input {
@@ -41,6 +51,8 @@
     padding: 10px 20px;
     font-size: 20px;
     color: gold;
+    text-shadow: -.5px 1px $color-secondary;
+    letter-spacing: 1px;
     outline: none;
     background-color: transparent;
     border: none;
@@ -48,7 +60,8 @@
     &::placeholder {
       font-size: 20px;
       color: gold;
-      opacity: .5;
+      opacity: .4;
+      text-shadow: -1.5px 2px $color-secondary;
     }
 
     &::-webkit-search-cancel-button,
