@@ -150,13 +150,13 @@ function getGenres(films) {  // janrlani bittadan qilib option yaratib ichiga so
       if(!genres.includes(genre)){
         // var newOption = document.createElement("option");
         var newOption = creatEl("option");
-        newOption.className = "option";
+        newOption.className = "option"
 
         newOption.textContent = genre;
         newOption.value = genre;
 
         genres.push(genre);
-
+        
         select.append(newOption);
       }
     })
