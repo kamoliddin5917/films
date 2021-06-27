@@ -30,6 +30,11 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+@media only screen and (max-width: 950px) {
+  .section-top .container {
+    flex-direction: column;
+  }
+}
 
 .search__label {
   display: inline-block;
@@ -103,6 +108,16 @@ body {
 .form {
   display: inline-block;
 }
+@media only screen and (max-width: 950px) {
+  .form {
+    margin-top: 19px;
+  }
+}
+@media only screen and (max-width: 317px) {
+  .form {
+    text-align: center;
+  }
+}
 
 .select {
   padding: 10px 20px;
@@ -118,6 +133,11 @@ body {
 }
 .select:hover {
   box-shadow: 0 0 20px #fff;
+}
+@media only screen and (max-width: 350px) {
+  .select {
+    padding: 10px 0 10px 10px;
+  }
 }
 
 .option {
@@ -142,6 +162,11 @@ body {
   transition: all 0.3s;
   position: relative;
   z-index: 1;
+}
+@media only screen and (max-width: 317px) {
+  .btn--form {
+    margin-top: 10px;
+  }
 }
 .btn--form::after {
   content: "";

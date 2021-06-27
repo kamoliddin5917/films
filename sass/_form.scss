@@ -1,5 +1,13 @@
 .form {
   display: inline-block;
+
+  @media only screen and(max-width:950px) {
+    margin-top: 19px;
+  }
+
+  @media only screen and(max-width:317px) {
+    text-align: center;
+  }
 }
 
 .select {
@@ -16,6 +24,10 @@
 
   &:hover {
     box-shadow: 0 0 20px $color-white;
+  }
+
+  @media only screen and(max-width:350px) {
+    padding: 10px 0 10px 10px;
   }
 }
 
@@ -43,6 +55,10 @@
   position: relative;
 
   z-index: 1;
+
+  @media only screen and(max-width:317px) {
+    margin-top: 10px;
+  }
 
   &::after {
     content: "";
