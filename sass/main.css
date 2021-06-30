@@ -46,6 +46,11 @@ body {
   display: flex;
   align-items: center;
 }
+@media only screen and (max-width: 950px) {
+  .search__label {
+    margin-bottom: 10px;
+  }
+}
 @media only screen and (max-width: 600px) {
   .search__label {
     width: 100%;
@@ -141,7 +146,6 @@ body {
 @media only screen and (max-width: 350px) {
   .select {
     padding: 10px 0 10px 10px;
-    margin-top: 10px;
   }
 }
 
