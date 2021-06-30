@@ -5,17 +5,16 @@ var cardsUl = findEl(".js-cards");
 var select = findEl(".select");
 var form = findEl(".form");
 var btnForm = findEl(".btn--form");
+var searchInput = findEl(".search__input");
 
-var creatEl = element => document.createElement(element); // elementlani yaratadi
+var creatEl = (element) => document.createElement(element); // elementlani yaratadi
 
-
-var usul_3 = (kino) =>{
-
+var usul_3 = (kino) => {
   var newLi = creatEl("li");
   var newImg = creatEl("img");
   var newDate = creatEl("p");
   var newTitle = creatEl("h3");
-  var newBtnText = creatEl("button")
+  var newBtnText = creatEl("button");
   var newText = creatEl("p");
   var newBtnCard = creatEl("div");
   var newBtn = creatEl("a");
@@ -24,8 +23,6 @@ var usul_3 = (kino) =>{
   var newBtnNotLike = creatEl("button");
 
   // var newGenresUl = creatEl("ul");
-
-
 
   // var newLi = document.createElement("li");
   // var newImg = document.createElement("img");
@@ -41,12 +38,12 @@ var usul_3 = (kino) =>{
 
   // var newGenresUl = document.createElement("ul");
 
-  newBtn.href = "#"
+  newBtn.href = "#";
   newLi.className = "card";
   newImg.className = "card__img";
   newDate.className = "card__date";
   newTitle.className = "card__title";
-  newBtnText.className = "card__btn-text"
+  newBtnText.className = "card__btn-text";
   newText.className = "card__text";
   newBtnCard.className = "card__box-btn";
   newBtn.className = "card__btn";
@@ -56,14 +53,13 @@ var usul_3 = (kino) =>{
 
   // newGenresUl.className = "card__genres-ul"; // kinolani ganriga ul yaratadi
 
-
   newImg.src = kino.poster;
   newDate.textContent = kino.release_date;
   newTitle.textContent = kino.title;
   newText.textContent = kino.overview;
   newBtn.textContent = "Play";
 
- /* // kino.genres.forEach(function (genre) {
+  /* // kino.genres.forEach(function (genre) {
   // //  var newGenresLi = document.createElement("li");
   //  var newGenresLi = creatEl("li");
 
@@ -71,10 +67,10 @@ var usul_3 = (kino) =>{
    
   //  newGenresLi.textContent = genre;
   //  newGenresUl.append(newGenresLi);
-  // }) */                                      // kinolani  ganrlarini chiqazadi
+  // }) */ // kinolani  ganrlarini chiqazadi
 
   newLi.append(newImg, newDate, newTitle, newBtnText, newText, newBtnCard);
-  newBtnCard.append(newBtn,newLikes);
+  newBtnCard.append(newBtn, newLikes);
   newLikes.append(newBtnLike, newBtnNotLike);
 
   // newLi.append(newGenresUl);   // kinolani ganridigi UL i kinoladigi LI ni ichiga soladi
@@ -82,16 +78,21 @@ var usul_3 = (kino) =>{
   newBtnText.addEventListener("click", function () {
     newText.classList.toggle("card__text-click");
     newBtnText.classList.toggle("card__btn-text-click");
-  })
+  });
 
   cardsUl.append(newLi);
 };
 
-for(var kino of films){
-  usul_3(kino); // 3-usul
+function forFilms(films) {
+  // forFilms function bn aylanish 2-usul
+  films.forEach((kino) => usul_3(kino)); // usul_3 digan functionni chaqirib kino digan qiymat berildi
+}
+forFilms(films);
 
+//  for(var kino of films){  // for of bn aylanish 1-usul
+// usul_3(kino); // 3-usul
 
- /* // var newLi = document.createElement("li");
+/* // var newLi = document.createElement("li");
   // var newImg = document.createElement("img");
   // var newDate = document.createElement("p");
   // var newTitle = document.createElement("h3");
@@ -102,8 +103,7 @@ for(var kino of films){
   // var newBtnLike = document.createElement("button");
   // var newBtnNotLike = document.createElement("button"); */ // 1-usul
 
-  
- /* var creatEl = (tag) => document.createElement(tag);
+/* var creatEl = (tag) => document.createElement(tag);
   
   var newLi = creatEl("li");
   var newImg = creatEl("img");
@@ -140,41 +140,66 @@ for(var kino of films){
   console.log(newLi);
 
   cardsUl.append(newLi); */ // 2-usul
-} 
+// }
 
-function getGenres(films) {  // janrlani bittadan qilib option yaratib ichiga soladi optionni select ichiga soladi
+function getGenres(films) {
+  // janrlani bittadan qilib option yaratib ichiga soladi optionni select ichiga soladi
   let genres = [];
 
   films.forEach(function (film) {
-    film.genres.forEach(genre => {
-      if(!genres.includes(genre)){
+    film.genres.forEach((genre) => {
+      if (!genres.includes(genre)) {
         // var newOption = document.createElement("option");
         var newOption = creatEl("option");
-        newOption.className = "option"
+        newOption.className = "option";
 
         newOption.textContent = genre;
         newOption.value = genre;
 
         genres.push(genre);
-        
+
         select.append(newOption);
       }
-    })
-  })
+    });
+  });
 }
 getGenres(films);
 
-form.addEventListener("submit", function (params) {   // btn bosilganda filtirlidi
+form.addEventListener("submit", function (params) {
+  // btn bosilganda filtirlidi
   params.preventDefault();
 
-  cardsUl.innerHTML = '';
-
+  cardsUl.innerHTML = "";
   var selectValue = select.value;
+  var searchValue = searchInput.value;
+  var searchValueRegExp = new RegExp(searchValue, "gi");
 
   var resaultFilter = films.filter(function (filtr) {
+    if (selectValue === "all") {
+      return filtr;
+    } // hamma kinolani chiqazadi
+
     if (filtr.genres.includes(selectValue)) {
-      return filtr
+      return filtr;
     }
-  })
-  resaultFilter.forEach(result => usul_3(result));
-})
+  });
+
+  // var searchInputReg = resaultFilter.filter((film) =>
+  //   film.title.toLowerCase().includes(searchValue.toLowerCase())
+  // ); // inputtan qidirish .toLowerCase() bn 1-usul
+
+  // var searchInputReg = resaultFilter.filter(function (cinema) {
+  //   if (cinema.title.match(searchValueRegExp)) {
+  //     return cinema;
+  //   }
+  // });  // inputtan qidirishi RegExp bn 1-usuli
+
+  var searchInputReg = resaultFilter.filter((cinema) =>
+    cinema.title.match(searchValueRegExp)
+  ); // inputtan qidirishi RegExp bn 2-usuli
+
+  // resaultFilter.forEach((result) => usul_3(result)); // for of bn aylanadi 1-usul
+
+  // forFilms(resaultFilter); // forFilms digan function chaqirilib qiymatiga resaultFilter digan array berildi va arrayi aylanberdi 2-usul
+  forFilms(searchInputReg);
+});

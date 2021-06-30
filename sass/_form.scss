@@ -1,8 +1,12 @@
 .form {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 
   @media only screen and(max-width:950px) {
     margin-top: 19px;
+    flex-direction: column;
   }
 
   @media only screen and(max-width:317px) {
@@ -28,6 +32,7 @@
 
   @media only screen and(max-width:350px) {
     padding: 10px 0 10px 10px;
+    margin-top: 10px;
   }
 }
 
