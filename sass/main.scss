@@ -32,6 +32,7 @@ body {
 @import './section-top';
 @import './form';
 
+
 .films {
   background-color: $bg-primary;
   border: 1px solid transparent;
@@ -153,6 +154,7 @@ body {
     margin-bottom: 5px;
     margin-top: auto;
     transition: all .3s;
+    cursor: pointer;
 
     position: relative;
 
@@ -287,3 +289,5 @@ body {
     }
   }
 }
+
+@import './modal';

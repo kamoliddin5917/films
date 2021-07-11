@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;1,400;1,500;1,700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./sass/main.css">
+  <link rel="stylesheet" href="./css/main.css">
   <title>FILMS</title>
 </head>
 
@@ -22,9 +22,17 @@
           </label>
 
           <div class="box-select">
-            <select name="films" class="select">
+            <select name="films" class="select select--genre">
               <option class="option" value="all">All</option>
             </select>
+
+            <select class="select__sort js-select-sort" name="sort">
+              <option class="option" value="0">New-Old</option>
+              <option class="option" value="1">Old-New</option>
+              <option class="option" value="2">Aa-Zz</option>
+              <option class="option" value="3">Zz-Aa</option>
+            </select>
+
             <button class="btn--form" type="submit">Filter</button>
           </div>
         </form>
@@ -35,6 +43,21 @@
       <ul class="cards js-cards"></ul>
     </div>
   </div>
+
+  <section class="modal js-modal">
+    <div class="modal__body">
+      <button class="card__btn modal__btn js-modal__btn">&times;</button>
+      <h1 class="modal__title js-modal__title">Lorem ipsum dolor sit amet.</h1>
+      <p class="modal__text js-modal__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque nemo ex
+        commodi
+        iure,
+        veniam deserunt rem repellat tempora itaque veritatis?</p>
+      <div class="modal-box">
+        <h3 class="modal-box__title">Genres</h3>
+        <ol class="modal-box__genres js-modal__ol"></ol>
+      </div>
+    </div>
+  </section>
   <script src="./javascript/films.js"></script>
   <script src="./javascript/script.js"></script>
 </body>

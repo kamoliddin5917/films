@@ -128,6 +128,20 @@ body {
   }
 }
 
+.box-select {
+  width: 450px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media only screen and (max-width: 490px) {
+  .box-select {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
 .select {
   padding: 10px 20px;
   font-size: 18px;
@@ -147,6 +161,28 @@ body {
   .select {
     padding: 10px 0 10px 10px;
   }
+}
+@media only screen and (max-width: 380px) {
+  .select--genre {
+    margin-bottom: 10px;
+  }
+}
+.select__sort {
+  padding: 10px 5px;
+  text-align: center;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  color: gold;
+  text-shadow: -1px 1px red;
+  letter-spacing: 2px;
+}
+.select__sort:hover {
+  box-shadow: 0 0 20px #fff;
 }
 
 .option {
@@ -172,9 +208,14 @@ body {
   position: relative;
   z-index: 1;
 }
-@media only screen and (max-width: 317px) {
+@media only screen and (max-width: 472px) {
   .btn--form {
     margin-top: 10px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .btn--form {
+    margin-top: 0px;
   }
 }
 .btn--form::after {
@@ -332,6 +373,7 @@ body {
   margin-bottom: 5px;
   margin-top: auto;
   transition: all 0.3s;
+  cursor: pointer;
   position: relative;
   z-index: 1;
 }
@@ -437,4 +479,88 @@ body {
 }
 .card__likes-like:nth-of-type(2):active {
   background-color: red;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal__open {
+  display: flex;
+}
+.modal__body {
+  box-shadow: -5px 10px rgba(255, 215, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  padding: 10px 20px;
+  text-align: center;
+  color: gold;
+  position: relative;
+  z-index: 5;
+}
+@media only screen and (max-width: 500px) {
+  .modal__body {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 440px) {
+  .modal__body {
+    padding: 40px 20px;
+  }
+}
+.modal__btn {
+  padding: 5px;
+  border-radius: 0;
+  width: auto;
+  font-size: 30px;
+  line-height: 16px;
+  text-shadow: none;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+}
+.modal__title {
+  margin-bottom: 10px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: -1px 1px red;
+}
+@media only screen and (max-width: 340px) {
+  .modal__title {
+    width: 100%;
+  }
+}
+.modal__text {
+  margin-bottom: 10px;
+  text-shadow: -0.5px 0.5px red;
+  background-color: black;
+  padding: 5px;
+  box-shadow: 0 0 20px gold;
+}
+.modal-box__title {
+  margin-bottom: 5px;
+  text-shadow: -1px 1px red;
+}
+.modal-box__genres {
+  text-align: start;
+}
+.modal__list {
+  list-style-position: inside;
+  border: 1px solid red;
+  background-color: black;
+  padding: 5px 10px;
+  margin-top: 5px;
+  text-shadow: -0.5px 0.5px red;
+  box-shadow: -4px 4px rgba(255, 215, 0, 0.6);
 }/*# sourceMappingURL=main.css.map */
